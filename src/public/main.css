@@ -1,8 +1,19 @@
 body {
   height: 100vh;
-  background: beige;
+  background: #eee;
 }
 
-h1{
+h1, h2{
    text-align: center;
 }
+
+.update
+{
+  margin-right: 3px;
+}
+
+.card-color
+{
+  /*background-color: #9BE8D8;*/
+}
+

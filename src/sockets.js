@@ -8,6 +8,7 @@ export default (io) => {
       const notes = await Note.find();
       io.emit("server:loadnotes", notes);
     };
+    
     emitNotes();
 
     socket.on("client:newnote", async (data) => {
@@ -30,6 +31,7 @@ export default (io) => {
       await Note.findByIdAndUpdate(updatedNote._id, {
         title: updatedNote.title,
         description: updatedNote.description,
+        date: updatedNote.date
       });
       emitNotes();
     });

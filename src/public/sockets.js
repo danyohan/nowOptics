@@ -5,10 +5,11 @@ const socket = io.connect();
  * @param {string} title a title for a new note
  * @param {string} description a description for a new note
  */
-export const saveNote = (title, description) => {
+export const saveNote = (title, description, date) => {
   socket.emit("client:newnote", {
     title,
     description,
+    date
   });
 };
 
@@ -53,7 +54,3 @@ export const onSelected = (callback) => {
 export const getNoteById = (noteId) => {
   socket.emit("client:getnote", noteId);
 };
-
-export const onDeleteNote = (noteId) => {
-    socket.emit("server:deletenote", noteId);
-  };
