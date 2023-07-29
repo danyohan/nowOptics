@@ -1,4 +1,4 @@
-import { deleteNote, getNoteById, saveNote, updateNote } from "./sockets.js";
+import { deleteNote, getNoteById, saveNote, updateNote } from "../sockets.js";
 
 const notesList = document.querySelector("#notes");
 const title = document.querySelector("#title");
@@ -38,18 +38,6 @@ export const renderNotes = (notes) => {
     ));
 
 };
-
-export const setColor = () => {
-  var x = document.getElementsByClassName("card-color");
-  var i;
-  var color = ["#F2C9BB", "#A0F2CC", "#FDE5EC", "#F6F4EB", "#91C8E4"];
-  for (i = 0; i < x.length; i++) {
-    const randomColor = color[Math.floor(Math.random() * color.length)]
-    x[i].style.backgroundColor = randomColor;;
-  }
-  // const randomColor = Math.floor(Math.random()*16777215).toString(16);
-  // document.getElementsByClassName('card').style.backgroundColor = "#" + randomColor;
-}
 
 export const appendNote = (note) => {
   notesList.append(noteUI(note));
