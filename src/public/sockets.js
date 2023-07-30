@@ -2,8 +2,9 @@ const socket = io.connect();
 
 /**
  * create a new note
- * @param {string} title a title for a new note
- * @param {string} description a description for a new note
+ * @param {string} title note title
+ * @param {string} description note description 
+ * @param {string} date  note date
  */
 export const saveNote = (title, description, date) => {
   socket.emit("client:newnote", {
@@ -14,8 +15,8 @@ export const saveNote = (title, description, date) => {
 };
 
 /**
- * delete a note based on an Id
- * @param {string} id a note ID
+ * delete a note by id
+ * @param {string} id note ID
  */
 export const deleteNote = (id) => {
   socket.emit("client:deletenote", id);
@@ -26,12 +27,14 @@ export const deleteNote = (id) => {
  * @param {string} id note ID
  * @param {string} title note title
  * @param {string} description note description
+ * @param {string} description note date
  */
-export const updateNote = (_id, title, description) => {
+export const  updateNote = (_id, title, description, date) => {
   socket.emit("client:updatenote", {
     _id,
     title,
     description,
+    date
   });
 };
 
@@ -53,4 +56,8 @@ export const onSelected = (callback) => {
 
 export const getNoteById = (noteId) => {
   socket.emit("client:getnote", noteId);
+};
+
+export const alertSuccess = (callback) => {
+  alertify.success('The note ha been created');
 };

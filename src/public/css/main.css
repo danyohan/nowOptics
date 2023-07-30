@@ -12,8 +12,20 @@ h1, h2{
   margin-right: 3px;
 }
 
-.card-color
+.card-title
 {
-  /*background-color: #9BE8D8;*/
+  text-align: left;
+  font-size: 35px;
+  font-family: "Google Sans",Roboto,Arial,sans-seriff;
+  font-weight: bold;
 }
 
+.updated
+{
+  font-size: 10px;
+ 
+}
+
+span{
+  margin-left: 3px;
+}

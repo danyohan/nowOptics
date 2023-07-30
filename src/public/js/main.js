@@ -1,9 +1,9 @@
-import { appendNote, renderNotes, fillForm, onHandleSubmit } from "../views/notes.js";
+import { addNotes, renderNotes, fillForm, onHandleSubmit } from "../views/notes.js";
 import { loadNotes, onNewNote, onSelected } from "../sockets.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   loadNotes(renderNotes);
-  onNewNote(appendNote);
+  onNewNote(addNotes);
   onSelected(fillForm);
 });
 

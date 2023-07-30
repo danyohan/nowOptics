@@ -14,11 +14,11 @@ export default (io) => {
     getNotes();
 
     socket.on("client:newnote", async (data) => {
-
       try {
         const newNotes = new Notes(data);
         const savedNote = await newNotes.save();
         io.emit("server:newnote", savedNote);
+
       } catch (error) {
         Log({
           info: error,
@@ -26,7 +26,6 @@ export default (io) => {
           function: "newnote"
         }, LogModel);
       }
-
     });
 
     socket.on("client:deletenote", async (noteId) => {
@@ -46,7 +45,7 @@ export default (io) => {
           description: updatedNotes.description,
           date: updatedNotes.date
         });
-        
+
         getNotes();
 
       } catch (error) {
@@ -65,5 +64,6 @@ export default (io) => {
         function: "disconnect"
       }, LogModel);
     });
+
   });
 };
