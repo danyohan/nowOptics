@@ -19,16 +19,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/general.css" />
 </head>
 
 <body>
-  <div class="container h-100">
+  <div class="container">
     <div class="row h-100">
       <div class="col-md-6 my-auto">
-        <h1 class="h3 mb-5">Notes Application</h1>
+        <h1 class="mb-5">Notes Application</h1>
         <form id="noteForm" class="card card-body rounded-0">
-          <h2 class="h3 mb-5">Notes</h2>
+          <h2 class="mb-5">Notes</h2>
           <input id="title" type="text" name="title" placeholder="Title" class="form-control rounded-0 mb-3"
             autofocus />
 
@@ -41,11 +41,12 @@
 
         </form>
       </div>
+      <div class="col-md-1"></div>
       <div class="col-md-4 py-3" id="notes"></div>
     </div>
 
   <script src="/socket.io/socket.io.js"></script>
-  <script src="js/main.js" type="module"></script>
+  <script src="js/general.js" type="module"></script>
 </body>
 
 </html>

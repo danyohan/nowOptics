@@ -50,7 +50,7 @@ export const onNewNote = (callback) => {
   socket.on("server:newnote", callback);
 };
 
-export const onSelected = (callback) => {
+export const onSelectedNote = (callback) => {
   socket.on("server:selectednote", callback);
 };
 
@@ -58,6 +58,6 @@ export const getNoteById = (noteId) => {
   socket.emit("client:getnote", noteId);
 };
 
-export const alertSuccess = (callback) => {
+export const alertSuccess = () => {
   alertify.success('The note ha been created');
 };

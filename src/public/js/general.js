@@ -1,10 +1,10 @@
 import { addNotes, renderNotes, fillForm, onHandleSubmit } from "../views/notes.js";
-import { loadNotes, onNewNote, onSelected } from "../sockets.js";
+import { loadNotes, onNewNote, onSelectedNote } from "../sockets.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   loadNotes(renderNotes);
   onNewNote(addNotes);
-  onSelected(fillForm);
+  onSelectedNote(fillForm);
 });
 
 const noteForm = document.querySelector("#noteForm");
