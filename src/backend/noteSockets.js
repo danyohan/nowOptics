@@ -31,7 +31,6 @@ export default (io) => {
       io.emit("message", { from, message });
     });
 
-
     const getNotes = async () => {
       const notes = await Notes.find();
       io.emit("server:loadnotes", notes);

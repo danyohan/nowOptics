@@ -7,6 +7,9 @@ Open `nowOptics` folder and run `npm install`.
 ## Rename .envExample to .env
 Add the PORT and MONGODB_URI settings that was sent via email
 
+## Redis
+You must configure a redis server for testing the chats
+
 ## Development server
 Run `npm run dev` for a dev server. Navigate to `http://127.0.0.1:3000/`.
 
