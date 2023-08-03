@@ -10,3 +10,5 @@ window.addEventListener("DOMContentLoaded", () => {
 const noteForm = document.querySelector("#noteForm");
 noteForm.addEventListener("submit", onHandleSubmit);
 
+
+

@@ -2,9 +2,35 @@ import Notes from "../models/notes";
 import LogModel from "../models/logs";
 import Log from "../lib/log";
 import TypeError from "../lib/logEnum";
+const redis = require("redis");
+const client = redis.createClient();
+
+const getMessages = async (socket) => {
+  client.LRANGE("messages", "0", "-1", function (err, data) {
+    data.map(x => {
+
+      const usernameMessage = x.split(":");
+      const redisUsername = usernameMessage[0];
+      const redisMessage = usernameMessage[1];
+      socket.emit("message", {
+        from: redisUsername,
+        message: redisMessage
+      });
+    });
+  });
+}
+
 
 export default (io) => {
   io.on("connection", (socket) => {
+
+    getMessages(socket);
+
+    socket.on("message", ({ message, from }) => {
+      client.rpush("messages", `${from}:${message}`);
+      io.emit("message", { from, message });
+    });
+
 
     const getNotes = async () => {
       const notes = await Notes.find();
@@ -27,6 +53,7 @@ export default (io) => {
         }, LogModel);
       }
     });
+
 
     socket.on("client:deletenote", async (noteId) => {
       await Notes.findByIdAndDelete(noteId);
@@ -67,3 +94,5 @@ export default (io) => {
 
   });
 };
+
+
